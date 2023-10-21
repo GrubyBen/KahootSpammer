@@ -1,1 +1,1 @@
-"# KahootSpammer" 
+Simple kahoot spammer by GrubyBen
