@@ -1,0 +1,25 @@
+{
+  "name": "kahoot",
+  "version": "1.0.0",
+  "description": "kahoot spammer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrubyBen/KahootSpammer.git"
+  },
+  "author": "GrubyBen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrubyBen/KahootSpammer/issues"
+  },
+  "homepage": "https://github.com/GrubyBen/KahootSpammer#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "kahoot.js-latest": "^1.0.5",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7"
+  }
+}
