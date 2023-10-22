@@ -8,17 +8,21 @@ const port = 2137;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname, "assets")));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
+    app.get('/css/style.css', (req, res) => {
+        res.type('text/css');
+    });
 });
 
 app.post('/kahootForm', (req, res) => {
     const formData = req.body;
-    const fieldId = formData.field1;
+    const gamePin = formData.field1;
     const playerName = formData.field2;
     const howMany = formData.field3;
+    const infoToDisplay = '<h1>kahootSpammer active</h1>';
 
     const bots = [];
 
@@ -26,7 +30,7 @@ app.post('/kahootForm', (req, res) => {
         const client = new Kahoot();
         bots.push(client);
 
-        client.join(fieldId, playerName + ' Bot ' + (i + 1));
+        client.join(gamePin, playerName + (i + 1));
 
         client.on('Joined', () => {
             console.log(`Bot ${i + 1} joined the Kahoot!`);
@@ -45,8 +49,9 @@ app.post('/kahootForm', (req, res) => {
             console.log(`Bot ${i + 1} says: The quiz has ended.`);
         });
     }
+    res.send(infoToDisplay)
 
-    res.send('Form submitted successfully');
+
 });
 
 app.listen(port, () => {
