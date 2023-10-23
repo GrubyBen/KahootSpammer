@@ -56,13 +56,11 @@ async function startServer() {
                 const howManyBots = formData.field3;
                 const infoToDisplay = '<h1>kahootSpammer active</h1>';
 
-                // Check if gamePin is a numeric value
                 if (!isNumeric(gamePin)) {
                     res.send('<h1>Invalid game ID. Please enter a numeric game ID.</h1>');
                     return;
                 }
 
-                // Check if howManyBots is a numeric value
                 if (!isNumeric(howManyBots)) {
                     res.send('<h1>Invalid number of bots. Please enter a numeric value.</h1>');
                     return;
@@ -98,7 +96,6 @@ async function startServer() {
                     }
                 };
 
-                // Limit the creation of bots to avoid overloading the server
                 const maxBotsToCreate = Math.min(howManyBots, 10);
 
                 for (let i = 0; i < maxBotsToCreate; i++) {
